@@ -33,5 +33,8 @@ pip install -r requirements.txt
 Rode a API:
 python -m uvicorn main:app --reload
 
-Acesse no navegador:
+## 🔗 Exemplo de uso
+
+Acesse a documentação automática:
+
 http://127.0.0.1:8000/docs
