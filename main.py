@@ -48,7 +48,7 @@ def inicio():
 
 
 @app.post("/tarefas")
-def adicionar(tarefa: Tarefa):
+def adicionar_tarefa(tarefa: Tarefa):
     global proximo_id
 
     nova_tarefa = {
@@ -65,7 +65,7 @@ def adicionar(tarefa: Tarefa):
 
 
 @app.get("/tarefas")
-def listar():
+def listar_tarefas():
     return {
         "total": len(tarefas),
         "tarefas": tarefas,
@@ -73,7 +73,7 @@ def listar():
 
 
 @app.put("/tarefas/{id}")
-def concluir(id: int):
+def concluir_tarefa(id: int):
     for tarefa in tarefas:
         if tarefa["id"] == id:
             tarefa["concluida"] = True
