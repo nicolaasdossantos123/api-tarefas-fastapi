@@ -43,7 +43,7 @@ carregar()
 def inicio():
     return {
         "status": "ok",
-        "mensagem": "API funcionando"
+        "mensagem": "API funcionan"
     }
 
 
