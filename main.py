@@ -43,7 +43,7 @@ carregar()
 def inicio():
     return {
         "status": "ok",
-        "mensagem": "API funcionan"
+        "mensagem": "API funcionando"
     }
 
 
@@ -71,20 +71,20 @@ def listar_tarefas():
         "tarefas": tarefas,
     }
 
-
 @app.put("/tarefas/{id}")
-def concluir_tarefa(id: int):
+def editar_tarefa(id: int, dados: Tarefa):
     for tarefa in tarefas:
         if tarefa["id"] == id:
-            tarefa["concluida"] = True
+            tarefa["nome"] = dados.nome
+            
             salvar()
-
+            
             return {
-                "mensagem": "Tarefa concluída",
+                "mensagem": "Tarefa atualizada!",
                 "tarefa": tarefa
             }
-
-    return {"erro": "Tarefa não encontrada"}
+            
+    return {"erro": "Tarefa não encontrada"}     
 
 
 @app.delete("/tarefas/{id}")
@@ -109,4 +109,5 @@ def buscar_tarefa(id: int):
             return tarefa
 
     return {"erro": "Tarefa não encontrada"}
+
 
