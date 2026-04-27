@@ -110,18 +110,3 @@ def buscar_tarefa(id: int):
 
     return {"erro": "Tarefa não encontrada"}
 
-
-@app.put("/tarefas/{id}")
-def editar_tarefa(id: int, dados: Tarefa):
-    for tarefa in tarefas:
-        if tarefa["id"] == id:
-            tarefa["nome"] = dados.nome  
-
-            salvar()
-
-            return {
-                "mensagem": "Tarefa atualizada!",
-                "tarefa": tarefa
-            }
-
-    return {"erro": "Tarefa não encontrada"}
